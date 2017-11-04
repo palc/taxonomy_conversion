@@ -16,7 +16,7 @@ while (<$tf>) {
     if (exists $headers{$id}) {next;}
 
     $headers{$id} = ">$id\tRoot;$kingdom;$phylum;$class;$order;$family;$genus";
-    if ($species !~ /^sp/i) {
+    if ($species !~ /^sp\.{0,1}$/i) {
         $headers{$id} .= ";$species";
     } else {
         $headers{$id} .= ";unclassified";

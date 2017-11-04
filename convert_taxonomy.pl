@@ -128,7 +128,7 @@ while (<$tf>) {
 
     if ($_ =~ /s_(\w+)/) {
         $species = $1;
-        if ($species eq "unclassified" || $species =~ /^sp/i) {
+        if ($species eq "unclassified" || $species =~ /^sp\.{0,1}$/i) {
             $species = "unclassified$unclass";
             $taxa{"$genus $species"} = 1000000000 + $unclass;
             $unclass++ if (!exists $done{"$genus $species"} && exists $taxa{"$genus $species"});
